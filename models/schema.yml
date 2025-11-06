@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: dbt_circle_thomas
+    description: dataset contenant les données sources de Circle
+    database: weighty-flux-428109-e5    # projet GCP
+    schema: dbt_circle_thomas           # dataset BigQuery
+    tables:
+      - name: sales
+        identifier: raw_cc_sales        # nom physique de la table
+        description: table des ventes de Circle
+        columns:
+          - name: date_date
+            description: les dates associées aux ventes de mes produits
+          - name: product_id
+            description: liste des products id vendus par Circle
+          - name: quantity
+
+  - name: gz_raw_data
+    database: weighty-flux-428109-e5    # projet GCP
+    schema: gz_raw_data                 # 🔴 important : dataset contenant raw_gz_*
+    description: dataset exo jour 1
+    loader: bigquery
+    freshness: 
+      error_after: {count: 12, period: hour}
+      warn_after: {count: 24, period: day}
+    tables:
+      - name: sales
+        identifier: raw_gz_sales        # table physique : raw_gz_sales
+        loaded_at_field: updated_at
+      - name: product
+        identifier: raw_gz_product
+        loaded_at_field: updated_at
+      - name: ship
+        identifier: raw_gz_ship
+        loaded_at_field: updated_at
+
+
+
+
+models:
+  - name: stock
+    columns:
+      - name: product_id_pk
+        tests:
+          - unique
+          - not_null 
