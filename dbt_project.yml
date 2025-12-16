@@ -45,3 +45,5 @@ models:
       +materialized: table
       finance:
         +schema: finance_bis
+      marketing:
+        +schema: marketing
