@@ -3,11 +3,11 @@ version: 2
 sources:
   - name: dbt_circle_thomas
     description: dataset contenant les données sources de Circle
-    database: weighty-flux-428109-e5    # projet GCP
-    schema: dbt_circle_thomas           # dataset BigQuery
+    database: weighty-flux-428109-e5    
+    schema: dbt_circle_thomas          
     tables:
       - name: sales
-        identifier: raw_cc_sales        # nom physique de la table
+        identifier: raw_cc_sales     
         description: table des ventes de Circle
         columns:
           - name: date_date
@@ -17,8 +17,8 @@ sources:
           - name: quantity
 
   - name: gz_raw_data
-    database: weighty-flux-428109-e5    # projet GCP
-    schema: gz_raw_data                 # 🔴 important : dataset contenant raw_gz_*
+    database: weighty-flux-428109-e5   
+    schema: gz_raw_data                
     description: dataset exo jour 1
     loader: bigquery
     freshness: 
@@ -26,7 +26,7 @@ sources:
       warn_after: {count: 24, period: day}
     tables:
       - name: sales
-        identifier: raw_gz_sales        # table physique : raw_gz_sales
+        identifier: raw_gz_sales       
         loaded_at_field: updated_at
       - name: product
         identifier: raw_gz_product
