@@ -14,7 +14,7 @@
      SUM(log_cost) AS log_cost,
      SUM(ship_cost) AS ship_cost,
  FROM {{ ref('int_campaigns_day') }}
- FULL OUTER JOIN {{ ref('finance_days') }}
+ FULL OUTER JOIN {{ ref('finance_campaigns_days') }}
      USING (date_date)
  GROUP BY datemonth
  ORDER BY datemonth desc
