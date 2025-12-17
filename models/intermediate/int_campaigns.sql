@@ -1,4 +1,4 @@
-{{ config(materialized= "view")}}
+{{ config(materialized= "table")}}
 
  SELECT *
  FROM {{ ref('stg_gz_raw_data__adwords') }}

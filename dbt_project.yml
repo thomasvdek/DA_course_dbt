@@ -47,3 +47,5 @@ models:
         +schema: finance_bis
       marketing:
         +schema: marketing
+      supply_chain:
+        +schema: supplychain
