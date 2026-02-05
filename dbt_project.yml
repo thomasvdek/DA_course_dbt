@@ -48,4 +48,4 @@ models:
       marketing:
         +schema: marketing
       supply_chain:
-        +schema: supplychain
+        +schema: supply_chain
