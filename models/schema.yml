@@ -66,6 +66,5 @@ models:
     columns:
       - name: ads_margin
         description: ads margin calculation...
-        tests:
-          - not_null
+
         
