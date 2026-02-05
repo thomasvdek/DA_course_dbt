@@ -1,3 +1,5 @@
+
+ {{ config( materialized = 'table' ) }}
  SELECT
      orders_id,
      max(date_date) as date_date,

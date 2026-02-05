@@ -20,32 +20,25 @@ sources:
     database: weighty-flux-428109-e5   
     schema: gz_raw_data                
     description: dataset exo jour 1
-    loader: bigquery
-    freshness: 
-      error_after: {count: 12, period: hour}
-      warn_after: {count: 24, period: day}
+    config: 
+      freshness: 
+        error_after: {count: 12, period: hour}
+        warn_after: {count: 24, period: day}
     tables:
       - name: sales
         identifier: raw_gz_sales       
-        loaded_at_field: updated_at
       - name: product
         identifier: raw_gz_product
-        loaded_at_field: updated_at
       - name: ship
         identifier: raw_gz_ship
-        loaded_at_field: updated_at
       - name: adwords
         identifier: raw_gz_adwords
-        loaded_at_field: updated_at
       - name: facebook
         identifier: raw_gz_facebook
-        loaded_at_field: updated_at
       - name: bing
         identifier: raw_gz_bing
-        loaded_at_field: updated_at
       - name: criteo
         identifier: raw_gz_criteo
-        loaded_at_field: updated_at
 
 
 
@@ -54,6 +47,7 @@ models:
   - name: stock
     columns:
       - name: product_id_pk
+        description: primary key product ID
         tests:
           - unique
           - not_null 
@@ -68,3 +62,10 @@ models:
     tests:
       - unique:
           column_name: "(campaign_key || '_' || date_date)"
+  - name: finance_campaigns_month
+    columns:
+      - name: ads_margin
+        description: ads margin calculation...
+        tests:
+          - not_null
+        
