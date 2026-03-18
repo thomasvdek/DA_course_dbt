@@ -1,5 +1,6 @@
 version: 2
 
+
 sources:
   - name: dbt_circle_thomas
     description: dataset contenant les données sources de Circle
@@ -42,8 +43,17 @@ sources:
 
 
 
-
 models:
+  - name: test
+    description: model qui listent mes références produit
+    columns:
+      - name: products_id
+        description: clé primaire de ma table test et liste de mes références produit 
+        tests:
+          - unique
+          - not_null
+          
+      - name: purchase_price
   - name: stock
     columns:
       - name: product_id_pk
