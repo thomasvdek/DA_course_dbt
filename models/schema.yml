@@ -22,8 +22,8 @@ sources:
     description: dataset exo jour 1
     config: 
       freshness: 
-        error_after: {count: 12, period: hour}
-        warn_after: {count: 24, period: day}
+        error_after: {count: 10, period: day}
+        warn_after: {count: 5, period: day}
     tables:
       - name: sales
         identifier: raw_gz_sales       
@@ -39,6 +39,9 @@ sources:
         identifier: raw_gz_bing
       - name: criteo
         identifier: raw_gz_criteo
+
+              
+              
 
 
 
