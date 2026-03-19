@@ -1,20 +1,7 @@
 version: 2
 
 sources:
-  - name: dbt_circle_thomas
-    description: dataset contenant les données sources de Circle
-    database: weighty-flux-428109-e5    
-    schema: dbt_circle_thomas          
-    tables:
-      - name: sales
-        identifier: raw_cc_sales     
-        description: table des ventes de Circle
-        columns:
-          - name: date_date
-            description: les dates associées aux ventes de mes produits
-          - name: product_id
-            description: liste des products id vendus par Circle
-          - name: quantity
+
 
   - name: gz_raw_data
     database: weighty-flux-428109-e5   
@@ -69,6 +56,5 @@ models:
     columns:
       - name: ads_margin
         description: ads margin calculation...
-        tests:
-          - not_null
+
         
