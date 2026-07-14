@@ -1,4 +1,3 @@
-WITH sub AS (
     SELECT
       products_id,
       date_date,
@@ -12,8 +11,3 @@ WITH sub AS (
             FROM {{ ref('stg_gz_raw_data__sales') }} s
   LEFT JOIN {{ ref('stg_gz_raw_data__product') }} p
       USING (products_id)
-
-)
-SELECT *
-, {{ margin_percent('revenue', 'purchase_cost') }} 
-FROM sub
