@@ -1,8 +1,26 @@
 version: 2
 
 sources:
-
-
+  - name: Orni
+    description: test
+    schema: Ornikar
+    tables:
+      - name: consumption
+        columns:
+          - name: user_id
+            tests:
+              - unique
+              - not_null
+      - name: exam
+        columns:
+          - name: user_id
+            tests:
+              - not_null
+              
+          - name: exam_date
+            description: exam date description
+          - name: exam_status
+    
   - name: gz_raw_data
     database: weighty-flux-428109-e5   
     schema: gz_raw_data                
@@ -13,7 +31,7 @@ sources:
         warn_after: {count: 5, period: day}
     tables:
       - name: sales
-        identifier: raw_gz_sales       
+        identifier: raw_gz_sales 
       - name: product
         identifier: raw_gz_product
       - name: ship
@@ -26,11 +44,6 @@ sources:
         identifier: raw_gz_bing
       - name: criteo
         identifier: raw_gz_criteo
-
-              
-              
-
-
 
 
 models:
@@ -56,5 +69,7 @@ models:
     columns:
       - name: ads_margin
         description: ads margin calculation...
+  - name: stg_gz_raw_data__bing
+
 
         
