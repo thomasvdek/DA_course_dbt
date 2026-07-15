@@ -70,6 +70,13 @@ models:
       - name: ads_margin
         description: ads margin calculation...
   - name: stg_gz_raw_data__bing
+  - name: stg_Orni__consumption
+    columns:
+      - name: user_id
+        tests:
+          - unique 
+          - not_null
+          
 
 
         
