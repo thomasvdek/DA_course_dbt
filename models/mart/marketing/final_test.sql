@@ -1,2 +1,2 @@
 SELECT *
-FROM {{ ref('test') }}
+FROM {{ ref('test_bis') }}
